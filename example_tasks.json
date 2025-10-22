@@ -4,7 +4,21 @@
         {
             "type": "shell",
             "label": "gfbuild",
-            "command": "gfortran code/*.f90 -o build/main -g3 -O0 -fbacktrace -fcheck=all -ffpe-trap=zero,overflow,underflow -Wall -Wextra -Warray-temporaries -Wconversion -ffree-line-length-0",
+            "command": "gfortran",
+            "args": [
+                "code/*.f90",
+                "-o", "build/main",
+                "-g3",
+                "-O0",
+                "-fbacktrace",
+                "-fcheck=all",
+                "-ffpe-trap=zero,overflow,underflow",
+                "-Wall",
+                "-Wextra",
+                "-Warray-temporaries",
+                "-Wconversion",
+                "-ffree-line-length-0"
+            ]
         }
     ]
 }
