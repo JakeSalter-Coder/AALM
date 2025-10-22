@@ -205,23 +205,23 @@ PROGRAM Leg20
    BACKSPACE(11)
    READ(11,*,IOSTAT=ioerr) vartype, runname
    
-   OutFile = TRIM(ADJUSTL(runname))//"/RunInfo_"//TRIM(ADJUSTL(runname))//".txt"
+   OutFile = "output/RunInfo_"//TRIM(ADJUSTL(runname))//".txt"
    OPEN(15, FILE=Outfile, IOSTAT=ioerr, ACTION="WRITE", RECL=100)
    WRITE(15,*) "AALM Leggett Fortran code RunInfo file"
    CALL DATE_AND_TIME(DateTime(1),DateTime(2),DateTime(3),DTValues(1:8))
    WRITE(15,'(A15,7I8)') " Run at time = ", DTValues(1:3), DTValues(5:8)
    WRITE(15,*) "Run name = ", TRIM(ADJUSTL(runname))
    
-   OutFile = TRIM(ADJUSTL(runname))//"/Log_"//TRIM(ADJUSTL(runname))//".csv"
+   OutFile = "output/Log_"//TRIM(ADJUSTL(runname))//".csv"
    OPEN(12, FILE=OutFile, IOSTAT=ioerr, ACTION="WRITE", RECL=1000)
-   OutFile = TRIM(ADJUSTL(runname))//"/Src_"//TRIM(ADJUSTL(runname))//".csv"
+   OutFile = "output/Src_"//TRIM(ADJUSTL(runname))//".csv"
    OPEN(13, FILE=OutFile, IOSTAT=ioerr, ACTION="WRITE", RECL=1000)
-   OutFile = TRIM(ADJUSTL(runname))//"/Out_"//TRIM(ADJUSTL(runname))//".csv"
+   OutFile = "output/Out_"//TRIM(ADJUSTL(runname))//".csv"
    OPEN(14, FILE=OutFile, IOSTAT=ioerr, ACTION="WRITE", RECL=1000)
    OutFile = TRIM(ADJUSTL(runname))//"/Day_"//TRIM(ADJUSTL(runname))//".csv"
    OPEN(16, FILE=OutFile, IOSTAT=ioerr, ACTION="WRITE", RECL=1000)
    PRINT*, "OutFile = ", TRIM(ADJUSTL(OutFile))
-   OutFile = TRIM(ADJUSTL(runname))//"/Rates_"//TRIM(ADJUSTL(runname))//".csv"
+   OutFile = "output/Rates_"//TRIM(ADJUSTL(runname))//".csv"
    OPEN(17, FILE=OutFile, IOSTAT=ioerr, ACTION="WRITE", RECL=1000)
    IF (ioerr<0) STOP
    PRINT*; PRINT*, " ***  AALM Fortran code, version ", version, "***"; PRINT* 
