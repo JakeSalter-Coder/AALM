@@ -1,0 +1,67 @@
+# Fortran build artifacts
+*.o
+*.mod
+*.smod
+*.a
+*.lib
+*.exe
+*.out
+*.obj
+*.res
+fortran.[0-9]*
+
+# Fortran compiler specific files
+*.gmo
+*.f90.gmo
+*.f95.gmo
+*.f03.gmo
+*.f08.gmo
+
+# Temporary files
+*~
+*.bak
+*.tmp
+*.log
+*.swp
+*.core
+# Editor specific temporary files
+.#*
+#*#
+
+# Debugging and profiling files
+*.dbg
+*.prof
+*.pgo
+
+# Visual Studio / Intel Fortran related files
+*.vfproj.user
+*.suo
+*.user
+*.ncb
+*.aps
+*.ilk
+*.pdb
+*.ipdb
+*.iobj
+*.tlog
+*.lastbuildstate
+*.bsc
+*.sbr
+*.exp
+*.vshost.*
+*.vspscc
+*.vssscc
+*.vsproj.user
+*.vcxproj.user
+
+# CMake related files (if using CMake)
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+Makefile
+CPackConfig.cmake
+_CPack_Packages/
+
+# Other common ignored files
+.DS_Store
+Thumbs.db
