@@ -9,13 +9,13 @@
         "type": "cppdbg",
         "request": "launch",
         "preLaunchTask": "gfbuild",
-        "program": "${workspaceFolder}/build/main",
+        "program": "${workspaceFolder}/build/main Examples/Examples/LeggettInput_Ex1.txt",
         "cwd":     "${workspaceFolder}",
         "args": [],
         "environment": [],
         "stopAtEntry": false,
         "externalConsole": false,
-        "MIMode": "gdb",
+        "MIMode": "lldb",
         "setupCommands": [
           {
             "description": "Enable pretty-printing for gdb",
