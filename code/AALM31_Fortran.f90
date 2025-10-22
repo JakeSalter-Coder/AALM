@@ -1035,11 +1035,12 @@ SUBROUTINE Read_phys_data()
        (/"AMTBLD", "F1    ", "FLONG ", "GSCAL ", "RBLAD ", "RBRAN ", "RCORT ", "RCS2B ", "RCS2DF",  &
          "RDIFF ", "RKDN2 ", "RLVR2 ", "RRBC  ", "RTRAB ", "RTS2B ", "RTS2DF", "TBONE ", "TFRAC ",  &
          "TOBRAN", "TOSOF0", "TOSOF1", "TOSOF2" /)
-   INTEGER :: varnum, age, first, ts1, ts2, n, offend, phys_age(N1)  
+   INTEGER :: varnum, age, first, ts1, ts2, n, offend
+   INTEGER, SAVE :: phys_age(N1)  
    REAL(RK) :: frac, a, b
    CHARACTER(6) :: var6
    IF (nlev==1) THEN
-      var6 = var 
+      var6 = var
       varnum = FINDLOC(PCList, var6, DIM=1)
       IF(varnum==0) PRINT*, "Phys variable not found: ", var
       IF(varnum>0)  PC(varnum) = VR(1)
@@ -1073,7 +1074,8 @@ END SUBROUTINE Read_phys_data
   
 
 SUBROUTINE Read_media_data()
-   INTEGER :: n, I, conc_age(0:N1), intake_age(0:N1), nmedia, nsrc
+   INTEGER :: n, I, nmedia, nsrc
+   INTEGER, SAVE :: conc_age(0:N1), intake_age(0:N1)
    INTEGER :: nsuff, age, first, last, base
    REAL(RK) :: div
    CHARACTER(1) :: nchar
@@ -1155,7 +1157,9 @@ SUBROUTINE Read_media_data()
    IF(INDEX(var,"RBA")>0) THEN
       first = 3*nmedia - 2
       last  = 3*nmedia
-      Allsource(first:last)%RBA = VR(1:nlev)
+      DO i = first, last
+         Allsource(i)%RBA = VR(nlev)
+      END DO
       div = REAL(Nperday)
       DO J=1,3
          source(first+J-1,1:NTS) = conc(J,1:NTS)*intake_tot(1:NTS)*intake_frac(J,1:NTS)/div
@@ -1189,7 +1193,7 @@ END SUBROUTINE stepwise
 
 
 SUBROUTINE interpolate(nlev, ages, VR, interp)
-   INTEGER, INTENT(IN)  :: nlev, ages(1:nlev) 
+   INTEGER(4), INTENT(IN)  :: nlev, ages(1:nlev) 
    REAL(RK), INTENT(IN)  :: VR(1:nlev)
    REAL(RK),INTENT(OUT) :: interp(0:NTS)
    INTEGER :: ts1, ts2, n, J
