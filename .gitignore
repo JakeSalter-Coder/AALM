@@ -53,6 +53,7 @@ fort.[0-9]*
 *.vssscc
 *.vsproj.user
 *.vcxproj.user
+/.vscode
 
 # CMake related files (if using CMake)
 CMakeCache.txt
