@@ -9,7 +9,7 @@
         "type": "cppdbg",
         "request": "launch",
         "preLaunchTask": "gfbuild",
-        "program": "${workspaceFolder}/build/main Examples/Examples/LeggettInput_Ex1.txt",
+        "program": "${workspaceFolder}/build/main Examples/LeggettInput_Ex1.txt",
         "cwd":     "${workspaceFolder}",
         "args": [],
         "environment": [],
