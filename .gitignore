@@ -61,6 +61,8 @@ cmake_install.cmake
 Makefile
 CPackConfig.cmake
 _CPack_Packages/
+build/*
+!build/.gitkeep
 
 # Other common ignored files
 .DS_Store
