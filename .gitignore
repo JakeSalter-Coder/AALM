@@ -8,7 +8,7 @@
 *.out
 *.obj
 *.res
-fortran.[0-9]*
+fort.[0-9]*
 
 # Fortran compiler specific files
 *.gmo
