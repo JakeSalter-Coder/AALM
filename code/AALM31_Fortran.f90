@@ -109,6 +109,7 @@ PROGRAM Leg20
    INTEGER              :: DTValues(8) = 0
    INTEGER              :: SetAges(6) = (/100, 365, 1825, 3650, 5475, 9125/)
    INTEGER              :: WhichStep = 1 
+   logical              :: fileExists
    !
    TYPE :: LungType
       REAL(RK) :: DepFracLET  = 0.
@@ -197,7 +198,10 @@ PROGRAM Leg20
    CALL GET_COMMAND_ARGUMENT(1,ParFile)
    IF(ParFile=="") ParFile="LeggettInput.txt"
    OPEN(11, FILE=ParFile, IOSTAT=ioerr, ACTION="READ", RECL=1000)
-   IF (ioerr<0) STOP
+   IF (ioerr/=0) THEN
+      PRINT *, "Input file '", trim(ParFile), "' Not found."
+      STOP
+   ENDIF
    READ(11,*,IOSTAT=ioerr) vartype
    DO WHILE(vartype(1:1) == "!")
       READ(11,*,IOSTAT=ioerr) vartype
